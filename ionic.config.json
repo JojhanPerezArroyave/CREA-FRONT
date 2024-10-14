@@ -1,0 +1,7 @@
+{
+  "name": "CREA-FRONT",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
