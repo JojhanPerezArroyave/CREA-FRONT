@@ -1,0 +1,49 @@
+.classroom-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &--name,
+    &--teacher {
+      font-size: 16px;
+      color: black !important;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    &--status {
+      border: 1px solid green;
+      border-radius: 12px;
+      padding: 4px 8px;
+      background-color: rgb(207, 244, 207);
+      color: black !important;
+    }
+
+    &--date {
+      font-size: 14px;
+      color: orange !important;
+      font-weight: 700;
+    }
+  }
+}
+
+.classroom-item h4 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.classroom-item p {
+  margin: 4px 0;
+  color: #666;
+}
