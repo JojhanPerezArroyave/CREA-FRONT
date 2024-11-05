@@ -11,6 +11,6 @@ export class GetClassroomService {
   constructor(private http: HttpClient) {}
 
   getDatos(): Observable<any> {
-    return this.http.get<any>(`${environment.API_URL}/Classroom`); // Cambia <any> al tipo de datos que esperas recibir
+    return this.http.get<any>(`${environment.API_URL}/Classroom`); 
   }
 }
