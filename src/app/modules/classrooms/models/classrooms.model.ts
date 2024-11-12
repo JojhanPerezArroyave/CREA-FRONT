@@ -7,7 +7,7 @@ export interface ClassroomModel {
   status: ClassroomStatus;
 }
 
-enum ClassroomStatus {
+export enum ClassroomStatus {
   Available,
   Busy,
 }

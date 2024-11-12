@@ -1,5 +1,6 @@
 import { Component, input, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ClassroomModel } from '../../models/classrooms.model';
 
 @Component({
   selector: 'app-classroom-item-list',
@@ -9,5 +10,5 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class ClassroomItemListComponent  {
-  classroom = input<any>();
+  classroom = input<ClassroomModel[]>();
 }

@@ -13,18 +13,21 @@ import { ClassroomFilterComponent } from '../../ui/classroom-filter/classroom-fi
 })
 export class ClassroomListContainerComponent implements OnInit {
   private readonly getClassroomService = inject(GetClassroomService);
-  data = signal<any>('');
+  data = signal<ClassroomModel[]>([]);
   searchTerm = signal<string>('');
 
   ngOnInit(): void {
     this.getClassroomService.getDatos().subscribe((data) => {
-      this.data.set(data);
+      const classrooms = Array.isArray(data) ? data : [data];
+      this.data.set(classrooms);
     });
   }
 
   filteredData = computed(() => {
     const searchTerm = this.searchTerm();
     const data = this.data();
+    console.log(data);
+
     if (!searchTerm) {
       return data;
     }
