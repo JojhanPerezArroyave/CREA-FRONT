@@ -1,3 +1,6 @@
-<app-classroom-filter (searchTerm)="onSearchTermChange($event)" />
-<app-classroom-item-list [classroom]="filteredData()" />
+<app-classroom-filter (searchTerm)="onSearchTermChange($event)"></app-classroom-filter>
+<app-classroom-button-filter class="btn-disponible" (filterStatus)="onFilterStatusChange($event)"></app-classroom-button-filter>
+<app-classroom-item-list [classroom]="filteredData()"></app-classroom-item-list>
+
+
 
