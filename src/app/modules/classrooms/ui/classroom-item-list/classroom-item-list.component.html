@@ -11,7 +11,7 @@
        [ngClass]="{'available': item.status === 0, 'busy': item.status === 1}">
       {{ getClassroomStatusLabel(item.status) }}
     </p>
-    <p class="classroom-item--section--date">
+    <p class="classroom-item--section--date" *ngIf="item.startDate && item.endDate">
       Ocupado a las: {{ item.startDate | date: 'dd/MM/yyyy' }} Hasta las:
       {{ item.endDate | date: 'dd/MM/yyyy' }}
     </p>
