@@ -8,10 +8,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./classroom-item-list.component.scss'],
   imports: [CommonModule],
 })
-export class ClassroomItemListComponent implements OnInit {
+export class ClassroomItemListComponent  {
   classroom = input<any>();
-
-  ngOnInit(): void {
-    console.log(this.classroom());
-  }
 }

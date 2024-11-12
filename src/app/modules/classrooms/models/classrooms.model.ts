@@ -1,9 +1,9 @@
 export interface ClassroomModel {
   id: string;
   name: string;
-  resposible: string;
-  startDate: string | Date;
-  endDate: string | Date;
+  responsible?: string;
+  startDate?: string | Date;
+  endDate?: string | Date;
   status: ClassroomStatus;
 }
 

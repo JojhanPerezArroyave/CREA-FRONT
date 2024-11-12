@@ -1,3 +1,6 @@
 <ion-toolbar>
-  <ion-searchbar placeholder="Buscar por encargado o aula"></ion-searchbar>
+  <ion-searchbar
+    (ionInput)="onSearchTermChange($event)"
+    placeholder="Buscar por encargado o aula"
+  ></ion-searchbar>
 </ion-toolbar>

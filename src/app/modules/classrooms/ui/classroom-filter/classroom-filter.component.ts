@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IonToolbar, IonHeader, IonSearchbar } from '@ionic/angular/standalone';
 
 @Component({
@@ -6,6 +6,12 @@ import { IonToolbar, IonHeader, IonSearchbar } from '@ionic/angular/standalone';
   templateUrl: './classroom-filter.component.html',
   styleUrls: ['./classroom-filter.component.scss'],
   standalone: true,
-  imports: [IonSearchbar, IonHeader, IonToolbar],
+  imports: [IonSearchbar, IonToolbar],
 })
-export class ClassroomFilterComponent {}
+export class ClassroomFilterComponent {
+  @Output() searchTerm = new EventEmitter<string>();
+
+  onSearchTermChange(event: CustomEvent): void {
+    this.searchTerm.emit(event.detail.value);
+  }
+}
