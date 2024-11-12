@@ -26,7 +26,6 @@ export class ClassroomListContainerComponent implements OnInit {
   filteredData = computed(() => {
     const searchTerm = this.searchTerm();
     const data = this.data();
-    console.log(data);
 
     if (!searchTerm) {
       return data;
