@@ -1,3 +1,3 @@
-<app-classroom-filter (searchTerm)="onSearchTermChange($event)" />
+<app-classroom-filter (searchTerm)="onSearchTermChange($event)" (statusFilter)="onStatusChange($event)"/>
 <app-classroom-item-list [classroom]="filteredData()" />
 
