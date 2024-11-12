@@ -4,3 +4,18 @@
     placeholder="Buscar por encargado o aula"
   ></ion-searchbar>
 </ion-toolbar>
+
+<ion-item lines="none">
+  <ion-label>Estado del aula</ion-label>
+</ion-item>
+
+<ion-radio-group class="radio-group-container">
+  <ion-item lines="none">
+    <ion-label class="label" color="medium">Disponible</ion-label>
+    <ion-radio slot="start" value="disponible"></ion-radio>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label class="label" color="medium">No disponible</ion-label>
+    <ion-radio slot="start" value="no-disponible"></ion-radio>
+  </ion-item>
+</ion-radio-group>

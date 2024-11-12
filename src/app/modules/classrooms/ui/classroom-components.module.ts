@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ClassroomItemListComponent } from './classroom-item-list/classroom-item-list.component';
 import { ClassroomFilterComponent } from './classroom-filter/classroom-filter.component';
 import { ClassroomButtonFilterComponent } from './classroom-button-filter/classroom-button-filter.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { ClassroomButtonFilterComponent } from './classroom-button-filter/classr
     ClassroomFilterComponent,
     ClassroomButtonFilterComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, IonicModule.forRoot()],
   exports: [
     ClassroomItemListComponent,
     ClassroomFilterComponent,
