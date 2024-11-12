@@ -1,6 +1,10 @@
 import { Component, input } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { ClassroomModel } from '../../models/classrooms.model';
+import {
+  ClassroomModel,
+  ClassroomStatus,
+  ClassroomStatusLabels,
+} from '../../models/classrooms.model';
 
 @Component({
   selector: 'app-classroom-item-list',
@@ -9,6 +13,12 @@ import { ClassroomModel } from '../../models/classrooms.model';
   styleUrls: ['./classroom-item-list.component.scss'],
   imports: [CommonModule, DatePipe],
 })
-export class ClassroomItemListComponent  {
+export class ClassroomItemListComponent {
   classroom = input<ClassroomModel[]>();
+
+  classroomStatusLabels = ClassroomStatusLabels;
+
+  getClassroomStatusLabel(status: ClassroomStatus): string {
+    return ClassroomStatusLabels[status];
+  }
 }

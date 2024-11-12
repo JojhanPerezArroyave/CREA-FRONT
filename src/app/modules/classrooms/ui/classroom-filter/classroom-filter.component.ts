@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonToolbar, IonSearchbar, IonRadioGroup, IonRadio, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { ClassroomStatus } from '../../models/classrooms.model';
 
 @Component({
   selector: 'app-classroom-filter',
@@ -12,9 +13,15 @@ import { IonToolbar, IonSearchbar, IonRadioGroup, IonRadio, IonItem, IonLabel } 
 })
 export class ClassroomFilterComponent {
   @Output() searchTerm = new EventEmitter<string>();
-  aulaEstado: string = 'disponible'; // Valor inicial de "Estado del aula"
+  @Output() statusFilter = new EventEmitter<ClassroomStatus>();
+
+  classroomStatus = ClassroomStatus;
 
   onSearchTermChange(event: CustomEvent): void {
     this.searchTerm.emit(event.detail.value);
+  }
+
+  onStatusChange(event: CustomEvent): void {
+    this.statusFilter.emit(event.detail.value);
   }
 }

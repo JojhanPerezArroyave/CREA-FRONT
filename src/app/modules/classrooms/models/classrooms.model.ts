@@ -11,3 +11,8 @@ export enum ClassroomStatus {
   Available,
   Busy,
 }
+
+export const ClassroomStatusLabels = {
+  [ClassroomStatus.Available]: 'Disponible',
+  [ClassroomStatus.Busy]: 'Ocupado',
+};
