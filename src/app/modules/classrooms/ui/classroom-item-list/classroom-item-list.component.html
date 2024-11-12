@@ -11,8 +11,8 @@
       {{ item.status }}
     </p>
     <p class="classroom-item--section--date">
-      Ocupado a las: {{ item.startDate }} Hasta las:
-      {{ item.endDate }}
+      Ocupado a las: {{ item.startDate | date: 'dd/MM/yyyy' }} Hasta las:
+      {{ item.endDate | date: 'dd/MM/yyyy' }}
     </p>
   </div>
 </div>

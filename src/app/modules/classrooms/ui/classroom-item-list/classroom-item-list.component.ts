@@ -1,5 +1,5 @@
-import { Component, input, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, input } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ClassroomModel } from '../../models/classrooms.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { ClassroomModel } from '../../models/classrooms.model';
   standalone: true,
   templateUrl: './classroom-item-list.component.html',
   styleUrls: ['./classroom-item-list.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, DatePipe],
 })
 export class ClassroomItemListComponent  {
   classroom = input<ClassroomModel[]>();
