@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     &--name,
     &--teacher {
       font-size: 16px;
@@ -26,11 +27,19 @@
     }
 
     &--status {
-      border: 1px solid green;
       border-radius: 12px;
       padding: 4px 8px;
-      background-color: rgb(207, 244, 207);
       color: black !important;
+
+      &.available {
+        border: 1px solid green;
+        background-color: rgb(207, 244, 207);
+      }
+
+      &.busy {
+        border: 1px solid red;
+        background-color: rgb(244, 207, 207);
+      }
     }
 
     &--date {

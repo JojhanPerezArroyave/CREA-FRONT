@@ -7,7 +7,8 @@
     </p>
   </div>
   <div class="classroom-item--section">
-    <p class="classroom-item--section--status">
+    <p class="classroom-item--section--status"
+       [ngClass]="{'available': item.status === 0, 'busy': item.status === 1}">
       {{ getClassroomStatusLabel(item.status) }}
     </p>
     <p class="classroom-item--section--date">
