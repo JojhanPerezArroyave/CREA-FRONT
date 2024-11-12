@@ -31,21 +31,22 @@ export class ClassroomListContainerComponent implements OnInit {
 
     let filtered = data;
 
-    // Filtrar por searchTerm
     if (searchTerm) {
-      filtered = filtered.filter((item: ClassroomModel) =>
-        item.responsible?.toLowerCase().includes(searchTerm.toLowerCase())
+      filtered = filtered.filter(
+        (item: ClassroomModel) =>
+          item.responsible?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
-    // Filtrar por estado
     if (selectedStatus() !== null) {
-      filtered = filtered.filter((item: ClassroomModel) => item.status === selectedStatus());
+      filtered = filtered.filter(
+        (item: ClassroomModel) => item.status === selectedStatus()
+      );
     }
 
     return filtered;
   });
-
 
   onSearchTermChange(searchTerm: string): void {
     this.searchTerm.set(searchTerm);
@@ -53,7 +54,6 @@ export class ClassroomListContainerComponent implements OnInit {
   }
 
   onStatusChange(status: ClassroomStatus): void {
-    console.log(status);
     this.selectedStatus.set(status);
     this.filteredData();
   }
