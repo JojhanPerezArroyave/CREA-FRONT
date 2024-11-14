@@ -1,20 +1,19 @@
 @for (item of classroom(); track $index) {
-<div class="classroom-item">
-  <div class="classroom-item--section">
-    <p class="classroom-item--section--name">{{ item.name }}</p>
-    <p class="classroom-item--section--teacher">
-      {{ item.responsible }}
-    </p>
+  <div class="classroom-item">
+    <p class="classroom-item__name">{{ item.name }}</p>
+    <div class="classroom-item__content">
+      <div class="classroom-item__section" *ngIf="item.startDate && item.endDate">
+        <p class="classroom-item__teacher">{{ item.responsible }}</p>
+      </div>
+      <div class="classroom-item__section">
+        <p class="classroom-item__status"
+          [ngClass]="{'classroom-item__status--available': item.status === 0, 'classroom-item__status--busy': item.status === 1}">
+          {{ getClassroomStatusLabel(item.status) }}
+        </p>
+        <p class="classroom-item__date" *ngIf="item.startDate && item.endDate">
+          Ocupado a las: {{ item.startDate | date: 'dd/MM/yyyy HH:mm' }} Hasta las: {{ item.endDate | date: 'dd/MM/yyyy HH:mm' }}
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="classroom-item--section">
-    <p class="classroom-item--section--status"
-       [ngClass]="{'available': item.status === 0, 'busy': item.status === 1}">
-      {{ getClassroomStatusLabel(item.status) }}
-    </p>
-    <p class="classroom-item--section--date" *ngIf="item.startDate && item.endDate">
-      Ocupado a las: {{ item.startDate | date: 'dd/MM/yyyy' }} Hasta las:
-      {{ item.endDate | date: 'dd/MM/yyyy' }}
-    </p>
-  </div>
-</div>
 }

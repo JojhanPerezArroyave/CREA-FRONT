@@ -1,16 +1,14 @@
 <ion-accordion-group class="accordeon">
   <ion-accordion value="aula" class="accordeon--content">
     <ion-item slot="header">
-      <ion-label>Filtrar</ion-label>
-    </ion-item>
-    <div slot="content">
       <ion-toolbar>
         <ion-searchbar
           (ionInput)="onSearchTermChange($event)"
           placeholder="Buscar por encargado o aula"
         ></ion-searchbar>
       </ion-toolbar>
-
+    </ion-item>
+    <div slot="content">
       <ion-item lines="none">
         <ion-label>Estado del aula</ion-label>
       </ion-item>
