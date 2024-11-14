@@ -1,62 +1,76 @@
 :host {
   height: 100%;
+  font-family: 'Roboto', sans-serif;
+  padding: 12px;
 }
 
 .classroom-item {
-  border: 1px solid #ddd;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 16px;
-  margin: 24px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 16px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   display: flex;
-  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   align-items: center;
 
-  &--section {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  &__name {
+    font-size: 16px;
+    color: #444;
+    font-weight: 500;
+    flex-basis: 30%;
+  }
+
+  &__content {
+    flex-basis: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 8px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 8px;
+  }
 
-    &--name,
-    &--teacher {
-      font-size: 16px;
-      color: black !important;
-      font-weight: 400;
-      font-style: italic;
+  &__teacher {
+    font-size: 16px;
+    color: #444;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  &__status {
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0;
+
+    &--available {
+      color: #2e7d32;
+      background-color: #e8f5e9;
     }
 
-    &--status {
-      border-radius: 12px;
-      padding: 4px 8px;
-      color: black !important;
-
-      &.available {
-        border: 1px solid green;
-        background-color: rgb(207, 244, 207);
-      }
-
-      &.busy {
-        border: 1px solid red;
-        background-color: rgb(244, 207, 207);
-      }
-    }
-
-    &--date {
-      font-size: 14px;
-      color: orange !important;
-      font-weight: 700;
+    &--busy {
+      color: #c62828;
+      background-color: #ffebee;
     }
   }
-}
 
-.classroom-item h4 {
-  margin: 0;
-  font-size: 1.5em;
-  color: #333;
-}
-
-.classroom-item p {
-  margin: 4px 0;
-  color: #666;
+  &__date {
+    font-size: 13px;
+    color: #757575;
+    margin-top: 4px;
+    max-width: 80%;
+    text-align: center;
+  }
 }
