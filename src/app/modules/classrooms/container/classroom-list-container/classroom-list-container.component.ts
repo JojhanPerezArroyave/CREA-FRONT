@@ -45,7 +45,7 @@ export class ClassroomListContainerComponent implements OnInit {
       );
     }
 
-    return filtered;
+    return selectedStatus() === undefined ? data : filtered;
   });
 
   onSearchTermChange(searchTerm: string): void {
