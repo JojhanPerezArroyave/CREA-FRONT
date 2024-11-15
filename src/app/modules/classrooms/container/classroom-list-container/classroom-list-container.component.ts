@@ -43,9 +43,13 @@ export class ClassroomListContainerComponent implements OnInit {
       filtered = filtered.filter(
         (item: ClassroomModel) => item.status === selectedStatus()
       );
+    } 
+
+    if (selectedStatus() === undefined) {
+      filtered = data
     }
 
-    return selectedStatus() === undefined ? data : filtered;
+    return filtered;
   });
 
   onSearchTermChange(searchTerm: string): void {
