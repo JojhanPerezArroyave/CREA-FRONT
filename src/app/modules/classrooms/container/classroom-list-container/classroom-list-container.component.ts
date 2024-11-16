@@ -39,15 +39,11 @@ export class ClassroomListContainerComponent implements OnInit {
       );
     }
 
-    if (selectedStatus() !== null) {
+    if (selectedStatus() != null) {
       filtered = filtered.filter(
         (item: ClassroomModel) => item.status === selectedStatus()
       );
     } 
-
-    if (selectedStatus() === undefined) {
-      filtered = data
-    }
 
     return filtered;
   });
