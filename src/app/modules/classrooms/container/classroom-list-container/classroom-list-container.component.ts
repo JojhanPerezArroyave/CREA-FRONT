@@ -18,7 +18,7 @@ export class ClassroomListContainerComponent implements OnInit {
   selectedStatus = signal<ClassroomStatus | null>(null);
 
   ngOnInit(): void {
-    this.getClassroomService.getDatos().subscribe((data) => {
+    this.getClassroomService.getClassrooms().subscribe((data) => {
       const classrooms = Array.isArray(data) ? data : [data];
       this.data.set(classrooms);
     });

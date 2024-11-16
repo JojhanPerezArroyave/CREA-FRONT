@@ -11,7 +11,7 @@ import { ClassroomModel } from '../models/classrooms.model';
 export class GetClassroomService {
   private readonly http = inject(HttpClient)
 
-  getDatos(): Observable<ClassroomModel> {
+  getClassrooms(): Observable<ClassroomModel> {
     return this.http.get<ClassroomModel>(`${environment.API_URL}/classrooms`); 
   }
 }
