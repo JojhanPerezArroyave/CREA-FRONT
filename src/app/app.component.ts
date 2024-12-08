@@ -32,8 +32,8 @@ export class AppComponent {
   isAuthenticated = false;
 
   constructor(
-    private router: Router,
-    private authService: AuthService
+    private readonly router: Router,
+    private readonly authService: AuthService
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

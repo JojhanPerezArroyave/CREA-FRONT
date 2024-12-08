@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonButton } from '@ionic/angular/standalone';
+import {
+  IonButton,
+  ToastController,
+  NavController,
+} from '@ionic/angular/standalone';
 import { UploadClassroomsService } from '../../services/upload-classrooms.service';
-import { ToastController } from '@ionic/angular/standalone';
-import { NavController } from '@ionic/angular/standalone';
-
 @Component({
   selector: 'app-upload-classrooms-container',
   templateUrl: './upload-classrooms-container.component.html',
@@ -15,9 +16,9 @@ export class UploadClassroomsContainerComponent {
   uploadedFile: File | null = null;
 
   constructor(
-    private uploadClassroomsService: UploadClassroomsService,
-    private toastController: ToastController,
-    private navCtrl: NavController
+    private readonly uploadClassroomsService: UploadClassroomsService,
+    private readonly toastController: ToastController,
+    private readonly navCtrl: NavController
   ) {}
 
   onFileSelected(event: Event) {

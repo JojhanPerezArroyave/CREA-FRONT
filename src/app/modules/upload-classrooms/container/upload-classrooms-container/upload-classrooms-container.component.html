@@ -5,7 +5,7 @@
     accept=".xlsx, .xls"
     (change)="onFileSelected($event)" />
 
-    <ion-button expand="block" color="primary" (click)="sendFile()">
+    <ion-button expand="block" color="primary" (click)="sendFile()" onkeypress="sendFile()">
       Cargar aulas
     </ion-button>
 </div>

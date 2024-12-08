@@ -10,22 +10,22 @@
 
     <ion-list>
       <ion-menu-toggle>
-        <ion-item (click)="onNavigateTo('/home')"> AULAS </ion-item>
+        <ion-item (click)="onNavigateTo('/home')" onkeypress="onNavigateTo('/home')"> AULAS </ion-item>
       </ion-menu-toggle>
     </ion-list>
 
     <div style="margin-top: auto">
       <ng-container *ngIf="isAuthenticated; else authOption">
         <ion-menu-toggle>
-          <ion-item (click)="onNavigateTo('/upload-classrooms')"> CARGAR AULAS </ion-item>
+          <ion-item (click)="onNavigateTo('/upload-classrooms')" onkeypress="onNavigateTo('/upload-classrooms')"> CARGAR AULAS </ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle>
-          <ion-item (click)="logout.emit()"> CERRAR SESIÓN </ion-item>
+          <ion-item (click)="logout.emit()" onkeypress="logout.emit()"> CERRAR SESIÓN </ion-item>
         </ion-menu-toggle>
       </ng-container>
       <ng-template #authOption>
         <ion-menu-toggle>
-          <ion-item (click)="onNavigateTo('/auth')"> INICIAR SESIÓN </ion-item>
+          <ion-item (click)="onNavigateTo('/auth')" onkeypress="onNavigateTo('/auth')"> INICIAR SESIÓN </ion-item>
         </ion-menu-toggle>
       </ng-template>
     </div>

@@ -7,7 +7,6 @@ import {
   IonHeader,
   IonInput,
   IonItem,
-  IonLabel,
   IonNote,
   IonTitle,
   IonToolbar,
@@ -18,7 +17,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
-  styleUrls: ['./auth-form.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -37,7 +35,7 @@ export class AuthFormComponent {
   @Output() sendLoginForm = new EventEmitter<AuthModel>();
   private readonly fb = inject(FormBuilder);
 
-  constructor(private router: Router,) {}
+  constructor(private readonly router: Router,) {}
 
   form = this.fb.group({
     email: this.fb.nonNullable.control(''),

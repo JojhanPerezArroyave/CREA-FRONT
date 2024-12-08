@@ -31,7 +31,7 @@ export class HamburguerMenuComponent {
   @Output() navigateTo = new EventEmitter<string>();
   @Output() logout = new EventEmitter<void>();
 
-  constructor(private menuController: MenuController) {}
+  constructor(private readonly menuController: MenuController) {}
 
   onNavigateTo(path: string) {
     this.navigateTo.emit(path);
