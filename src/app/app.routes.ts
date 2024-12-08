@@ -3,7 +3,9 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'auth',
-    loadComponent: () => import('./modules/auth/container/auth-container'),
+    loadComponent: () =>
+      import('./modules/auth/container/auth-container'),
+    data: { hideMenu: true },
   },
   {
     path: 'home',
@@ -11,7 +13,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'auth',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
 ];

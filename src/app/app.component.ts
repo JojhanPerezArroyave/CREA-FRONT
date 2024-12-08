@@ -1,12 +1,51 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+import { NavigationEnd, Router } from '@angular/router';
+import {
+  IonApp,
+  IonRouterOutlet,
+  IonMenu,
+  IonHeader,
+  IonToolbar,
+  IonContent,
+  IonMenuButton,
+  IonButtons,
+  IonItem,
+  IonList,
+} from '@ionic/angular/standalone';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet],
+  imports: [
+    IonApp,
+    IonRouterOutlet,
+    IonMenu,
+    IonHeader,
+    IonToolbar,
+    IonContent,
+    IonMenuButton,
+    IonButtons,
+    IonItem,
+    IonList,
+  ],
 })
 export class AppComponent {
-  constructor() {}
+  menuEnabled = true;
+
+  constructor(private router: Router, private menuController: MenuController) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = this.router.routerState.snapshot.root.firstChild;
+        this.menuEnabled = !(currentRoute?.data?.['hideMenu'] ?? false);
+      }
+    });
+  }
+
+  navigateTo(path: string) {
+    console.log('Navigating to', path);
+    this.router.navigate([path]);
+    this.menuController.close();
+  }
 }
