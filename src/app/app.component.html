@@ -1,17 +1,10 @@
 <ion-app style="background-color: white">
   @if (menuEnabled) {
-  <ion-menu content-id="main-content">
-    <ion-content class="ion-padding">
-      <ion-list>
-        <ion-item (click)="navigateTo('/home')"> AULAS </ion-item>
-      </ion-list>
-
-      <div style="margin-top: auto">
-        <ion-item (click)="navigateTo('/auth')"> INICIAR SESIÓN </ion-item>
-      </div>
-    </ion-content>
-  </ion-menu>
-
+  <app-hamburguer-menu
+    [isAuthenticated]="isAuthenticated"
+    (logout)="onLogout()"
+    (navigateTo)="navigateTo($event)"
+  ></app-hamburguer-menu>
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>

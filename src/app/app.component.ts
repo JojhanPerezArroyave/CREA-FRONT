@@ -3,16 +3,16 @@ import { NavigationEnd, Router } from '@angular/router';
 import {
   IonApp,
   IonRouterOutlet,
-  IonMenu,
   IonHeader,
   IonToolbar,
   IonContent,
   IonMenuButton,
   IonButtons,
-  IonItem,
-  IonList,
+
 } from '@ionic/angular/standalone';
 import { MenuController } from '@ionic/angular';
+import { AuthService } from './modules/auth/services/auth.service';
+import { HamburguerMenuComponent } from './modules/classrooms/ui/hamburguer-menu/hamburguer-menu.component';
 
 @Component({
   selector: 'app-root',
@@ -21,30 +21,41 @@ import { MenuController } from '@ionic/angular';
   imports: [
     IonApp,
     IonRouterOutlet,
-    IonMenu,
     IonHeader,
     IonToolbar,
     IonContent,
     IonMenuButton,
-    IonButtons,
-    IonItem,
-    IonList,
+    IonButtons, HamburguerMenuComponent
   ],
 })
 export class AppComponent {
   menuEnabled = true;
+  isAuthenticated = false;
 
-  constructor(private router: Router, private menuController: MenuController) {
+  constructor(
+    private router: Router,
+    private menuController: MenuController,
+    private authService: AuthService
+  ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.routerState.snapshot.root.firstChild;
         this.menuEnabled = !(currentRoute?.data?.['hideMenu'] ?? false);
       }
+
+      this.authService.isAuthenticated$.subscribe(
+        (isAuth) => (this.isAuthenticated = isAuth)
+      );
     });
   }
 
   navigateTo(path: string) {
     this.router.navigate([path]);
     this.menuController.close();
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this.navigateTo('/auth');
   }
 }

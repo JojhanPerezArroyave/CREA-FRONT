@@ -24,7 +24,6 @@ export class AuthContainer {
   }
 
   async onLogin(authData: AuthModel) {
-    
     this.authService.login(authData).subscribe({
       next: async () => {
         const toast = await this.toastController.create({
@@ -47,4 +46,5 @@ export class AuthContainer {
       },
     });
   }
+
 }
