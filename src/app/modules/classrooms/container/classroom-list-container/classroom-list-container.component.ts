@@ -9,7 +9,6 @@ import { ClassroomFilterComponent } from '../../ui/classroom-filter/classroom-fi
   standalone: true,
   templateUrl: './classroom-list-container.component.html',
   imports: [ClassroomItemListComponent, ClassroomFilterComponent],
-  styleUrls: ['./classroom-list-container.component.scss'],
 })
 export class ClassroomListContainerComponent implements OnInit {
   private readonly getClassroomService = inject(GetClassroomService);
@@ -43,7 +42,7 @@ export class ClassroomListContainerComponent implements OnInit {
       filtered = filtered.filter(
         (item: ClassroomModel) => item.status === selectedStatus()
       );
-    } 
+    }
 
     return filtered;
   });
