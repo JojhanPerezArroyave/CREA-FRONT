@@ -44,7 +44,6 @@ export class AppComponent {
   }
 
   navigateTo(path: string) {
-    console.log('Navigating to', path);
     this.router.navigate([path]);
     this.menuController.close();
   }
