@@ -1,3 +1,11 @@
-<p>
-  upload-classrooms-container works!
-</p>
+<div class="upload-container">
+  <input
+    #fileInput
+    type="file"
+    accept=".xlsx, .xls"
+    (change)="onFileSelected($event)" />
+
+    <ion-button expand="block" color="primary" (click)="sendFile()">
+      Cargar aulas
+    </ion-button>
+</div>
