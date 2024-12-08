@@ -1,4 +1,3 @@
-// nombre-del-servicio.service.ts
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,6 +11,6 @@ export class GetClassroomService {
   private readonly http = inject(HttpClient)
 
   getClassrooms(): Observable<ClassroomModel> {
-    return this.http.get<ClassroomModel>(`${environment.API_URL}/classrooms`); 
+    return this.http.get<ClassroomModel>(`${environment.API_URL}/classrooms/list`);
   }
 }

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AuthFormComponent } from '../../ui/auth-form/auth-form.component';
 import { AuthModel } from '../../models/auth.models';
 import { AuthService } from '../../services/auth.service';
-import { ToastController, IonToast } from '@ionic/angular/standalone';
+import { ToastController } from '@ionic/angular/standalone';
 import { NavController } from '@ionic/angular/standalone';
 
 @Component({
