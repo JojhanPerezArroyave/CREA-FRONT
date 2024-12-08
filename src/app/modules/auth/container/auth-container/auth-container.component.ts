@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular/standalone';
   templateUrl: './auth-container.component.html',
   styleUrls: ['./auth-container.component.scss'],
   standalone: true,
-  imports: [IonToast, AuthFormComponent],
+  imports: [AuthFormComponent],
 })
 export class AuthContainer {
   private readonly authService = inject(AuthService);

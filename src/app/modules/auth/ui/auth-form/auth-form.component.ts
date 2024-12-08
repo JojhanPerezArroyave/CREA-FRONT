@@ -25,7 +25,6 @@ import { AuthModel } from '../../models/auth.models';
     IonButton,
     IonNote,
     IonInput,
-    IonLabel,
     IonItem,
     IonTitle,
     IonContent,
