@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadComponent: () => import('./modules/classrooms/container/classroom-list-container'),
   },
   {
+    path: 'upload-classrooms',
+    loadComponent: () => import('./modules/upload-classrooms/container/upload-classrooms-container'),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

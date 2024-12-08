@@ -10,7 +10,6 @@ import {
   IonButtons,
 
 } from '@ionic/angular/standalone';
-import { MenuController } from '@ionic/angular';
 import { AuthService } from './modules/auth/services/auth.service';
 import { HamburguerMenuComponent } from './modules/classrooms/ui/hamburguer-menu/hamburguer-menu.component';
 
@@ -34,7 +33,6 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private menuController: MenuController,
     private authService: AuthService
   ) {
     this.router.events.subscribe((event) => {
@@ -51,7 +49,6 @@ export class AppComponent {
 
   navigateTo(path: string) {
     this.router.navigate([path]);
-    this.menuController.close();
   }
 
   onLogout() {
