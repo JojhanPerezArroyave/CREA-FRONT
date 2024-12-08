@@ -13,6 +13,7 @@ import {
   IonToolbar,
 } from '@ionic/angular/standalone';
 import { AuthModel } from '../../models/auth.models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
@@ -36,6 +37,8 @@ export class AuthFormComponent {
   @Output() sendLoginForm = new EventEmitter<AuthModel>();
   private readonly fb = inject(FormBuilder);
 
+  constructor(private router: Router,) {}
+
   form = this.fb.group({
     email: this.fb.nonNullable.control(''),
     password: this.fb.nonNullable.control(''),
@@ -44,5 +47,9 @@ export class AuthFormComponent {
   onLogin() {
     const authData = this.form.value;
     this.sendLoginForm.emit(authData as AuthModel);
+  }
+
+  navigateToClassrooms() {
+    this.router.navigate(['/home']);
   }
 }
