@@ -1,0 +1,25 @@
+<ion-menu content-id="main-content">
+  <ion-content class="ion-padding">
+    <!-- Sección de la foto y texto -->
+    <div class="profile-section" *ngIf="isAuthenticated">
+      <ion-avatar>
+        <img src="assets/user.jpg" alt="Administrador" />
+      </ion-avatar>
+      <p class="profile-name">Administrador</p>
+    </div>
+
+    <ion-list>
+      <ion-item (click)="navigateTo.emit('/home')"> AULAS </ion-item>
+    </ion-list>
+
+    <div style="margin-top: auto">
+      <ng-container *ngIf="isAuthenticated; else authOption">
+        <ion-item (click)="navigateTo.emit('/auth')"> CARGAR AULAS </ion-item>
+        <ion-item (click)="logout.emit()"> CERRAR SESIÓN </ion-item>
+      </ng-container>
+      <ng-template #authOption>
+        <ion-item (click)="navigateTo.emit('/auth')"> INICIAR SESIÓN </ion-item>
+      </ng-template>
+    </div>
+  </ion-content>
+</ion-menu>
