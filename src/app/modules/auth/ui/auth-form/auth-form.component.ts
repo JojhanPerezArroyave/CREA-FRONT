@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { NavController } from '@ionic/angular';
 import {
-  IonHeader,
-  IonToolbar,
+  IonButton,
   IonContent,
-  IonTitle,
+  IonHeader,
+  IonInput,
   IonItem,
   IonLabel,
-  IonInput,
   IonNote,
-  IonButton,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
+import { AuthModel } from '../../models/auth.models';
 
 @Component({
   selector: 'app-auth-form',
@@ -34,8 +34,8 @@ import {
   ],
 })
 export class AuthFormComponent {
+  @Output() sendLoginForm = new EventEmitter<AuthModel>();
   private readonly fb = inject(FormBuilder);
-  private readonly navCtrl = inject(NavController);
 
   form = this.fb.group({
     email: this.fb.nonNullable.control(''),
@@ -43,6 +43,7 @@ export class AuthFormComponent {
   });
 
   onLogin() {
-    this.navCtrl.navigateForward('/home');
+    const authData = this.form.value;
+    this.sendLoginForm.emit(authData as AuthModel);
   }
 }
